@@ -28,14 +28,4 @@ module.exports = {
 
 }
 
-// rows(){
-//     driver.findElements(By.css('tr'))
-// },
-// links(row){
-//     row.findElements(By.css('a'))
-// },
-// remainingCell(row){
-//     row.findElement(By.css('td:nth-child(12)'))
-// },
 
-// document.querySelectorAll('tr').cells[0].childNodes[0].innerText   // not useful

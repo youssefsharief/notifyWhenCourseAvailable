@@ -19,11 +19,3 @@ module.exports = {
 
 
 
-// document.querySelector('#term_input_id [value="201810"]').selected = true
-// $('#term_input_id').val(201810)
-
-
-// driver.findElement(By.name('btnG')).click();
-// driver.wait(until.titleIs('webdriver - Google Search'), 1000);
-// driver.quit();
-

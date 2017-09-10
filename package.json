@@ -5,10 +5,10 @@
   "scripts": {
     "coverage": "nodemon --exec istanbul cover node_modules/jasmine/bin/jasmine.js JASMINE_CONFIG_PATH=jasmine.json",
     "test": "nodemon --exec jasmine JASMINE_CONFIG_PATH=jasmine.json",
-    "dev": "nodemon ./src/bin/www",
     "x": "casperjs src/core/casper",
     "start": "pm2 start src/core/selenium/app.js",
-    "preinstall": "npm i -g pm2 && pm2 install pm2-logrotate"
+    "preinstall": "npm i -g pm2 && pm2 install pm2-logrotate",
+    "dev": "nodemon src/core/selenium/app.js"
   },
   "engines": {
     "node": "6.11.0"
