@@ -3,43 +3,20 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "coverage": "nodemon --exec istanbul cover node_modules/jasmine/bin/jasmine.js JASMINE_CONFIG_PATH=jasmine.json",
-    "test": "nodemon --exec jasmine JASMINE_CONFIG_PATH=jasmine.json",
-    "x": "casperjs src/core/casper",
-    "start": "pm2 start src/core/selenium/app.js",
+    "start": "pm2 start src/app.js",
     "preinstall": "npm i -g pm2 && pm2 install pm2-logrotate",
-    "dev": "nodemon src/core/selenium/app.js"
+    "dev": "node src/app.js"
   },
   "engines": {
     "node": "6.11.0"
   },
   "dependencies": {
-    "@types/selenium-webdriver": "^3.0.6",
-    "body-parser": "~1.17.1",
-    "casper": "^0.1.1",
-    "casperjs": "^1.1.4",
     "cheerio": "^1.0.0-rc.2",
-    "cookie-parser": "~1.4.3",
-    "cors": "^2.8.4",
     "cron": "^1.2.1",
-    "debug": "~2.6.3",
-    "express": "~4.15.2",
-    "express-history-api-fallback": "^2.2.1",
-    "istanbul": "^0.4.5",
-    "jade": "^1.11.0",
-    "jsdom": "^11.2.0",
-    "mongoose": "^4.11.7",
-    "morgan": "~1.8.1",
     "nodemailer": "^4.1.0",
-    "phantomjs": "^2.1.7",
-    "request": "^2.81.0",
-    "selenium-webdriver": "^3.5.0",
-    "socket.io": "^1.7.4",
-    "webdriverio": "^4.8.0",
-    "winston": "^2.3.1"
+    "request": "^2.81.0"
   },
   "devDependencies": {
-    "jasmine": "^2.7.0",
     "nodemon": "^1.11.0"
   }
 }

@@ -1,30 +1,13 @@
-const path = require('path');
-const morganLogger = require('morgan');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const winstonLogger = require('./core/logger')
-const express = require('express')
-const {scrape} = require('./core/scrape')
-const {scrapeByjsdom} = require('./core/jsdom')
-const {scrapeByCasper} = require('./core/casper')
+const getRemainingSeats = require('./core/request')
+const { CRN, threshold } = require('./config/course.config')
+const { sendMail } = require('./core/mailer')
+const CronJob = require('cron').CronJob;
 
+console.log('running request')
 
-const app = express();
-
-app.get('/scrape', scrape)
-app.get('/jsdom', scrapeByjsdom)
-app.get('/casper', scrapeByCasper)
-
-
-
-winstonLogger.configure()
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-app.use(morganLogger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-
-
-module.exports = app;
-
+new CronJob('0 */15 * * * * ', function () {
+    getRemainingSeats(CRN)
+        .then(remaining => sendMail(remaining > threshold ? true : false, remaining))
+        .then(info => console.log(info))
+        .catch(err => console.log(err))
+}, null, true, 'America/Los_Angeles');
