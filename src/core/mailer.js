@@ -1,16 +1,16 @@
 var nodemailer = require('nodemailer');
 const config = require('../config/mailer.config.js')
+const recipientConfig = require('../config/recipients.config.js')
 let transporter = nodemailer.createTransport(config.mailer);
 
-function sendMail(bool, remaining){
-    
+function sendMail(messageText){
     return new Promise((resolve, reject)=>{
         let mailOptions = {
-            from: 'node.mailer.webdriver@gmail.com', // sender address
-            to: ['sharief@aucegypt.edu', 'raneemsherif@aucegypt.edu'], // list of receivers
-            subject: bool? `Success: ${remaining} remaining seats`: `Nay: ${remaining} remaining seats`, // Subject line
-            text: bool? `Success: ${remaining} remaining seats`: `Nay: ${remaining} remaining seats`, // plaintext body
-            html: bool? `Success: ${remaining} remaining seats`: `Nay: ${remaining} remaining seats`,// html body
+            from: config.mailer.auth.user, // sender address
+            to: recipientConfig.mailAddresses, // list of receivers
+            subject: messageText, // Subject line
+            text: messageText, // plaintext body
+            html: messageText,// html body
         };
         transporter.sendMail(mailOptions, (error, info) => {
             if (error) return reject(error)
@@ -21,4 +21,4 @@ function sendMail(bool, remaining){
 }
 
 
-module.exports = {sendMail }
+module.exports = { sendMail }

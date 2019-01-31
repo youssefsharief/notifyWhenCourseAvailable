@@ -1,6 +1,7 @@
 const course = {
-    CRN: 11188,
-    threshold: -8
+    CRN: 32535,
+    threshold: 0,
+    term: '201920'
 }
 
 module.exports = course

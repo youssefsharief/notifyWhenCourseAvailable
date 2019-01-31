@@ -1,11 +1,9 @@
-
-
 module.exports = {
     mailer: {
         service: 'Gmail',
         auth: {
-            user: 'node.mailer.webdriver@gmail.com',
-            pass: '*****'
+            user: process.env.mailerUser,
+            pass: process.env.mailerPass
         }
     }
 }
