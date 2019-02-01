@@ -11,7 +11,6 @@ module.exports = {
         threshold: 0,
         term: '201920',
         subject: 'FINC',
-        threshold: 0
     },
     recipients: {
         mailAddresses: ['sharief@aucegypt.edu', 'raneemsherif@aucegypt.edu']
