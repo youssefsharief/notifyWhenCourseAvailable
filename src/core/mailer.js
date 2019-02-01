@@ -24,6 +24,3 @@ module.exports =  class {
         
     }
 }
-
-// from: config.mailer.auth.user, // sender address
-// to: recipientConfig.mailAddresses, // list of receivers
